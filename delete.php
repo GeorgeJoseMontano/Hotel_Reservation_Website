@@ -3,10 +3,10 @@
 
 $email = $_POST['id_to_delete'];
 
-$host = "localhost:3307";
-$dbUsername = "root";
-$dbPassword = "";
-$dbname = "website";
+$host = "sql105.epizy.com";
+$dbUsername = "epiz_31776346";
+$dbPassword = "O3MpsispyCf";
+$dbname = "epiz_31776346_website";
 //create connection
 $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
 if (mysqli_connect_error()) {

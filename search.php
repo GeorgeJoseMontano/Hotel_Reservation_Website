@@ -238,6 +238,94 @@ if (!empty($last_name) || !empty($email)) {
 			</div>	
 		</div>	
 		</div>
+		</div>
+	
+		
+		<!-- Update Reservation Modal-->
+		<div class="modal fade" id="update_modal" tabindex="-1" role="dialog" aria-labelledby="update_modal" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalCenterTitle">Reservation</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				
+				<form action="update.php" method="POST">
+					<input type="hidden" name="id_to_update" value="<?php echo $email; ?>">
+					<div class="form-row">
+						<div class="form-group col-md-4">
+						<label for="updateFName">First Name</label>
+						<input type="text" class="form-control" id="updateFName" name="updateFName" required value="<?php echo $first_name ?>">
+						</div>
+						<div class="form-group col-md-4">
+						<label for="updateMName">Middle Name</label>
+						<input type="text" class="form-control" id="updateMName" name="updateMName" value="<?php echo $middle_name ?>">
+						</div>
+						<div class="form-group col-md-4">
+						<label for="updateFamName">Family Name</label>
+						<input type="text" class="form-control" id="updateFamName" name="updateFamName" required value="<?php echo $last_name ?>">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="updateEmail">Email Address</label>
+						<input type="text" class="form-control" id="updateEmail" name="updateEmail" required value="<?php echo $email ?>">
+					</div>
+					
+					<div class="form-group">
+						<label for="updateNumberGuests">Number of Guests</label>
+						<input type="number" class="form-control" id="updateNumberGuests" name="updateNumberGuests" value="<?php echo $guests ?>" min="1" max="5" required>
+					</div>
+												
+					<div class="form-group">
+						<label for="updateHotel">Hotel</label>
+						<select id="updateHotel" class="form-control" name="updateHotel" required>
+							<option selected value="<?php echo $hotel ?>"><?php echo $hotel ?></option>
+							<option value="Luxe Hotel - Manila">Luxe Hotel - Manila</option>
+							<option value="Deluxe Hotel - Cebu">Deluxe Hotel - Cebu</option>
+							<option value="Bora Hotel - Cagayan de Oro">Bora Hotel - Cagayan de Oro</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="updateRoom">Room</label>
+						<select id="updateRoom" class="form-control" name="updateRoom" required>
+							<option selected value="<?php echo $room ?>"><?php echo $room ?></option>
+							<option value="Single Economy">Single Economy</option>
+							<option value="Double Economy">Double Economy</option>
+							<option value="Premium">Premium</option>
+							<option value="Deluxe">Deluxe</option>
+							<option value="Presidential Suite">Presidential Suite</option>
+						</select>
+					</div>				
+											
+					<div class="form-group">
+						<label for="arrival-date-update">Arrival Date</label>
+						<input class="form-control" type="date" id="arrival-date-update" name="updateArrival" required value="<?php echo $check_in ?>">
+					</div>
+
+					<div class="form-group">
+						<label for="departure-date-update">Departure Date</label>
+						<input class="form-control" type="date" id="departure-date-update" name="updateDeparture" required value="<?php echo $check_out ?>">
+					</div>
+					
+					<div class="form-group">
+						<div class="form-check">
+							<input class="form-check-update" type="checkbox" id="gridCheck" required>
+							<label class="form-check-label" for="gridCheck">
+							I agree to the <a href=rules.pdf target="_blank">rules and policies</a> of the hotel
+							</label>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Update my Reservation</button>
+				</form>
+			</div>	
+		</div>	
+		</div>
 		</div>		
 		<!-- Modals: End -->
 
@@ -269,7 +357,7 @@ if (!empty($last_name) || !empty($email)) {
 					</div>
 					<div class="row" style="padding-left: inherit;">
 						<div class="col-md-7">
-							<button><a href="index.php">Update Reservation</a></button>
+							<a class="btn btn-warning" data-toggle="modal" data-target="#update_modal">Update Reservation</a>
 						</div>
 						<div class="col-md-5">
 							<!-- Delete Form -->

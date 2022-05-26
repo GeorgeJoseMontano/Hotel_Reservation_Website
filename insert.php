@@ -11,10 +11,10 @@ $check_in = $_POST['arrival'];
 $check_out = $_POST['departure'];
 
 if (!empty($first_name) || !empty($middle_name) || !empty($family_name) || !empty($email) || !empty($guests) || !empty($hotel) || !empty($room) || !empty($check_in) || !empty($check_out)) {
-    $host = "localhost:3307";
-    $dbUsername = "root";
-    $dbPassword = "";
-    $dbname = "website";
+    $host = "sql105.epizy.com";
+    $dbUsername = "epiz_31776346";
+    $dbPassword = "O3MpsispyCf";
+    $dbname = "epiz_31776346_website";
     // Establish connection
     $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
     if (mysqli_connect_error()) {
